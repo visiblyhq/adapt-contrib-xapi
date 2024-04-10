@@ -1396,12 +1396,12 @@ class XAPI extends Backbone.Model {
     var shouldRetry = true;
     const sendStatementCallback = (error, res, body) => {
       if (error) {
-        Adapt.trigger('xapi:lrs:sendStatement:error', error);
         if(shouldRetry){
           this.xapiWrapper.sendStatement(statement, sendStatementCallback, attachments);
           shouldRetry = false;
           return;
         }
+        Adapt.trigger('xapi:lrs:sendStatement:error', error);
         throw error;
       }
 
