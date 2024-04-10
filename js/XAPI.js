@@ -1400,6 +1400,7 @@ class XAPI extends Backbone.Model {
         if(shouldRetry){
           this.xapiWrapper.sendStatement(statement, sendStatementCallback, attachments);
           shouldRetry = false;
+          return;
         }
         throw error;
       }
