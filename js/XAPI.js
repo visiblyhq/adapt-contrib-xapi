@@ -1393,7 +1393,7 @@ class XAPI extends Backbone.Model {
    * @param {array} [attachments] - An array of attachments to pass to the LRS.
    */
   async onStatementReady(statement, attachments) {
-    var shouldRetry = true;
+    var shouldRetry = true; 
     const sendStatementCallback = (error, res, body) => {
       if (error) {
         if(shouldRetry){
